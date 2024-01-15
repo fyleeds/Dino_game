@@ -5,11 +5,14 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform GFX;
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform feetPos;
     [SerializeField] private float groundDistance = 0.25f;
     [SerializeField] private float jumpTime = 0.3f;
+    [SerializeField] private float crouchHeight = 0.5f;
+    [SerializeField] private BoxCollider2D boxCollider;
 
     private bool isGrounded = false;
     private bool isJumping  = false;
@@ -17,8 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Input
         isGrounded = Physics2D.OverlapCircle(feetPos.position, groundDistance,groundLayer);
+
+        #region JUMPING..
 
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -43,8 +47,27 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
             jumpTimer = 0f;
         }
+        #endregion
 
-
+        #region CROUCHING
+        if (isGrounded && Input.GetButton("Crouch"))
+        {
+            GFX.localScale = new Vector3(GFX.localScale.x, crouchHeight, GFX.localScale.z);
+            boxCollider.size = GFX.localScale;
+            if (isJumping)
+            {
+                GFX.localScale = new Vector3(GFX.localScale.x,1f, GFX.localScale.z);
+                boxCollider.size = GFX.localScale;
+            }
+        }
+            
+        if (Input.GetButtonUp("Crouch"))
+        {
+            GFX.localScale = new Vector3(GFX.localScale.x, 1f , GFX.localScale.z);
+            boxCollider.size = GFX.localScale;
+        }
+        #endregion
     }
+
 
 }
