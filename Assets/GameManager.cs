@@ -13,16 +13,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("GameManager Awake called");
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Debug.Log("GameManager Instance set");
         }
         else if (Instance != this)
         {
-            Debug.Log("GameManager Instance already exists, destroying duplicate");
             Destroy(gameObject);
         }
     }
@@ -38,7 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Button Clicked");
         onPlay.Invoke();
         isPlaying = true;
         SceneManager.LoadScene("SampleScene");

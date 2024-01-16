@@ -416,12 +416,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: 2469385380603774275, guid: f984ce2769c850343950ab6dc2d0b477, type: 3}
+  - {fileID: 4848731779699739814, guid: f984ce2769c850343950ab6dc2d0b477, type: 3}
   - {fileID: 298941746825551954, guid: 203e726d6a5991a4fa65223b9d78b169, type: 3}
   - {fileID: 7304791111559876854, guid: 5c5061c67434798459623f7ec4e8aacb, type: 3}
-  Maxtime: 1
+  Maxtime: 2
   obstacle_speed: 2
-  MaxTimeFactor: 0.1
+  MaxTimeFactor: 0.201
   obstacle_speedFactor: 0.2
   timeAlive: 1
 --- !u!4 &805697642

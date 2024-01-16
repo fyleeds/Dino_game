@@ -8,8 +8,8 @@ public class SpawnPrefab : MonoBehaviour
     public float Maxtime = 2f; // Max time interval between spawns
     private float _Maxtime;
     public float obstacle_speed = 2f;
-    [Range(0,1f)]public float MaxTimeFactor = 0.1f ;
-    [Range(0,1f)]public float obstacle_speedFactor = 0.2f;
+    [Range(0,0.5f)]public float MaxTimeFactor = 0.2f ;
+    [Range(0,0.5f)]public float obstacle_speedFactor = 0.2f;
     public float timeAlive = 1f;
     private void Start()
     {
@@ -46,9 +46,7 @@ public class SpawnPrefab : MonoBehaviour
     public void Spawn()
     {
         GameObject obstacle_spawn = obstaclePrefabs[Random.Range(0,obstaclePrefabs.Length)];
-        // Vector3 spawnposition = new Vector3(transform.position.x, Random.Range(minY, maxY), 0);
         GameObject spawned_obstacle = Instantiate(obstacle_spawn, transform.position, Quaternion.identity);
-        //spawned_obstacle.transform.parent = obstacleParent;
 
     }
     private void CalculateFactors()
@@ -67,7 +65,7 @@ public class SpawnPrefab : MonoBehaviour
     private void ResetFactors()
     {
         timeAlive = 1f;
-        //Obstacle.Instance.Speed = obstacle_speed;
+        Obstacle.Instance.Speed = obstacle_speed;
         _Maxtime = Maxtime;
     }
 
