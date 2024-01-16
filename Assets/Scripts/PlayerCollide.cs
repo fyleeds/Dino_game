@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerCollide : MonoBehaviour
 {
@@ -12,17 +9,8 @@ public class PlayerCollide : MonoBehaviour
         // Check if the collision is with the specific item
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            LoadGameOver();
             GameManager.Instance.GameOver();
         }
     }
 
-    void LoadGameOver()
-    {
-        // Load by scene name
-        SceneManager.LoadScene("GameOver");
-
-        // Or load by scene index
-        // SceneManager.LoadScene(sceneBuildIndex);
-    }
 }

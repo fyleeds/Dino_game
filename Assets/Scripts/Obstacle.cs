@@ -2,8 +2,18 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    #region Singleton
+
+    public static Obstacle Instance;
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+
+    }
+
+    #endregion
     private Rigidbody2D obstacle;
-    public float Speed = 3f;
+    public float Speed = 2f;
     private Vector2 movement;
 
     // Start is called before the first frame update

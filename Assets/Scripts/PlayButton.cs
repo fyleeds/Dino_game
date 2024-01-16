@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonsController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
-
-    public void OnButtonClick()
-    {
-        LoadGame();
-
+    public void OnPlayButtonClicked()
+        {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.StartGame();
+        }
+        else
+        {
+            Debug.LogError("GameManager instance is not set.");
+        }
     }
-    void LoadGame()
-    {
-        // Load by scene name
-        SceneManager.LoadScene("SampleScene");
-
-        // Or load by scene index
-        // SceneManager.LoadScene(sceneBuildIndex);
-    }
-
 }

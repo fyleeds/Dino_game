@@ -3,15 +3,27 @@ using UnityEngine;
 public class SpawnPrefab : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstaclePrefabs;
-    public float Maxtime = 2f; // Max time interval between spawns
-    //public float maxY, minY;
+    //[SerializeField] private Transform obstacleParent;    
     private float currentTime; // To track the time since the last spawn
-    public float obstacle_speed = 3f;
-     
+    public float Maxtime = 2f; // Max time interval between spawns
+    private float _Maxtime;
+    public float obstacle_speed = 2f;
+    [Range(0,1f)]public float MaxTimeFactor = 0.1f ;
+    [Range(0,1f)]public float obstacle_speedFactor = 0.2f;
+    public float timeAlive = 1f;
+    private void Start()
+    {
+        GameManager.Instance.onPlay.AddListener(ResetFactors);
+    }
     void Update()
     {
         if (GameManager.Instance.isPlaying)
         {
+            timeAlive += Time.deltaTime;
+            if (Obstacle.Instance != null)
+            {
+                CalculateFactors();
+            }
             SpawnLoop();
         }
     }
@@ -23,7 +35,7 @@ public class SpawnPrefab : MonoBehaviour
 
 
         // Check if it's time to spawn a new obstacle
-        if (currentTime >= Maxtime)
+        if (currentTime >= _Maxtime)
         {
             Spawn();
             // Reset the timer and set the next spawn interval
@@ -36,7 +48,27 @@ public class SpawnPrefab : MonoBehaviour
         GameObject obstacle_spawn = obstaclePrefabs[Random.Range(0,obstaclePrefabs.Length)];
         // Vector3 spawnposition = new Vector3(transform.position.x, Random.Range(minY, maxY), 0);
         GameObject spawned_obstacle = Instantiate(obstacle_spawn, transform.position, Quaternion.identity);
+        //spawned_obstacle.transform.parent = obstacleParent;
 
+    }
+    private void CalculateFactors()
+    {
+        _Maxtime = Maxtime / Mathf.Pow(timeAlive, MaxTimeFactor);
+        if (Obstacle.Instance != null)
+        {
+            Obstacle.Instance.Speed = obstacle_speed * Mathf.Pow(timeAlive, obstacle_speedFactor);
+        }
+        else
+        {
+            Debug.LogError("Obstacle instance is null.");
+        }
+    
+    }
+    private void ResetFactors()
+    {
+        timeAlive = 1f;
+        //Obstacle.Instance.Speed = obstacle_speed;
+        _Maxtime = Maxtime;
     }
 
 
