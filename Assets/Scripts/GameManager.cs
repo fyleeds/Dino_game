@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public float currentScore = 0f;
     public bool isPlaying = false;
     public int minEvent = 1;
-    public int maxEvent = 3000;
+    public int maxEvent = 10000;
     public UnityEvent onPlay = new UnityEvent();
     public UnityEvent onEvent = new UnityEvent();
 

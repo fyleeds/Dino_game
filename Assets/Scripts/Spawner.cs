@@ -55,7 +55,7 @@ public class SpawnPrefab : MonoBehaviour
     public void Spawn(bool isEvent )
     {
         if (isEvent == true){
-            GameObject obstacle_spawn = obstaclePrefabs[Random.Range(3,obstaclePrefabs.Length)];
+            GameObject obstacle_spawn = obstaclePrefabs[Random.Range(0,obstaclePrefabs.Length)];
             GameObject spawned_obstacle = Instantiate(obstacle_spawn, transform.position, Quaternion.identity);
         }else{
             GameObject obstacle_spawn = obstaclePrefabs[Random.Range(0,4)];
