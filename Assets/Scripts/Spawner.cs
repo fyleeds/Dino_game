@@ -91,7 +91,7 @@ public class SpawnPrefab : MonoBehaviour
     }
     public void manageEvent()
     {
-        if (isEvent == true && timeAlive >= 15f && timeEvent > 0f){
+        if (isEvent == true && timeEvent > 0f){
             timeEvent -= Time.deltaTime;
         }else{
             isEvent = false;
