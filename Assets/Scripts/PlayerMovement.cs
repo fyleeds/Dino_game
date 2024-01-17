@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform feetPos;
     [SerializeField] private float groundDistance = 0.25f;
-    [SerializeField] private float jumpTime = 0.3f;
+    [SerializeField] private float jumpTime = 0.5f;
     [SerializeField] private float crouchHeight = 0.5f;
     [SerializeField] private BoxCollider2D boxCollider;
 

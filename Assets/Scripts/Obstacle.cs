@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
 
     #endregion
     private Rigidbody2D obstacle;
-    public float Speed = 2f;
+    public float Speed = 2.5f;
     private Vector2 movement;
 
     // Start is called before the first frame update

@@ -9,9 +9,9 @@ public class SpawnPrefab : MonoBehaviour
     private float _Maxtime;
 
     public float minY,maxY ;
-    public float obstacle_speed = 2f;
-    [Range(0,3.98f)]public float MaxTimeFactor = 3.98f ;
-    public float obstacle_speedFactor = 0.8f;
+    public float obstacle_speed = 1.7f;
+    [Range(0,0.398f)]public float MaxTimeFactor = 0.398f ;
+    public float obstacle_speedFactor = 0.106f;
 
     public float timeAlive = 1f;
     public float timeEvent = 5f;

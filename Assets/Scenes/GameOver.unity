@@ -423,7 +423,7 @@ MonoBehaviour:
   currentScore: 0
   isPlaying: 0
   minEvent: 1
-  maxEvent: 10000
+  maxEvent: 3000
   onPlay:
     m_PersistentCalls:
       m_Calls:
