@@ -30,7 +30,7 @@ This project is an endless runner game inspired by Subway Surfer. The player nav
 
 ## 🔥 Bonus Features
 - Double jump capability for added gameplay depth.
-- Progressive speed increase based on distance covered, enhancing game excitement.
+- Progressive speed and obstacles increase based on distance covered, enhancing game excitement.
 
 ## Getting Started
 Follow these instructions to set up the game in your local environment.
