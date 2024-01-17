@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded = false;
     private bool isJumping  = false;
+    private bool canDoubleJump = false;
     private float jumpTimer;
 
     private void Update()
@@ -27,8 +28,9 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
+            canDoubleJump = true;
             rb.velocity = Vector2.up * jumpForce;
-        } 
+        }
         if (isJumping && Input.GetButton("Jump"))
         {
             if (jumpTimer < jumpTime)
@@ -42,11 +44,17 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = false;
             }
         }
+        if (canDoubleJump && isGrounded == false && Input.GetButtonDown("Jump")){
+            isJumping = true;
+            rb.velocity = Vector2.up * jumpForce;
+            canDoubleJump = false;
+        }
         if (Input.GetButtonUp("Jump"))
         {
-            isJumping = false;
-            jumpTimer = 0f;
+                isJumping = false;
+                jumpTimer = 0f;
         }
+
         #endregion
 
         #region CROUCHING

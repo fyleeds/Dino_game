@@ -3,9 +3,12 @@ using UnityEngine;
 public class SpawnPrefab : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstaclePrefabs;
+    [SerializeField] private GameObject moneyPrefab;
     private float currentTime; // To track the time since the last spawn
     public float Maxtime = 3.5f; // Max time interval between spawns
     private float _Maxtime;
+
+    public float minY,maxY ;
     public float obstacle_speed = 2f;
     [Range(0,3.98f)]public float MaxTimeFactor = 3.98f ;
     public float obstacle_speedFactor = 0.8f;
@@ -58,7 +61,9 @@ public class SpawnPrefab : MonoBehaviour
             GameObject obstacle_spawn = obstaclePrefabs[Random.Range(0,4)];
             GameObject spawned_obstacle = Instantiate(obstacle_spawn, transform.position, Quaternion.identity);
         }
-
+        Vector3 spawnposition = new Vector3(transform.position.x, Random.Range(minY, maxY));
+        GameObject spawned_money = Instantiate(moneyPrefab, spawnposition, Quaternion.identity);
+        
     }
     private void CalculateFactors()
     {
@@ -88,9 +93,7 @@ public class SpawnPrefab : MonoBehaviour
     {
         if (isEvent == true && timeAlive >= 15f && timeEvent > 0f){
             timeEvent -= Time.deltaTime;
-            Debug.Log("Event is active");
         }else{
-            Debug.Log("Event is unactive");
             isEvent = false;
             timeEvent = 5f;
         }

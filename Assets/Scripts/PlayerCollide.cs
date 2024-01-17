@@ -11,6 +11,12 @@ public class PlayerCollide : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
+        else if (collision.gameObject.CompareTag("Money"))
+        {
+            GameManager.Instance.AddMoney();
+            Destroy(collision.gameObject);
+        }
+
     }
 
 }

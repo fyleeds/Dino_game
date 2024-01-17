@@ -65,6 +65,10 @@ public class GameManager : MonoBehaviour
             onEvent.Invoke();
         }
     }
+    public void AddMoney()
+    {
+        currentScore += 10f;
+    }
 
 
 }

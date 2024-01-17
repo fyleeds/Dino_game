@@ -598,7 +598,10 @@ MonoBehaviour:
   - {fileID: 835248981068622231, guid: 5c8ce20a433c21541ae8390cc799508a, type: 3}
   - {fileID: 3298075422464977221, guid: 0203bca50aa9bee4d8d2b41d39fe9336, type: 3}
   - {fileID: 4456755400967348506, guid: 0d30c99d72b42814bbf11b8b683fe878, type: 3}
+  moneyPrefab: {fileID: 9146905887547886493, guid: d3989c3b03e60b048a778fdbfb5c0d86, type: 3}
   Maxtime: 3.5
+  minY: 5
+  maxY: 10
   obstacle_speed: 1.7
   MaxTimeFactor: 0.398
   obstacle_speedFactor: 0.106
@@ -887,7 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2430345909343218755}
   GFX: {fileID: 6251672416306033545}
-  jumpForce: 9.5
+  jumpForce: 7
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
