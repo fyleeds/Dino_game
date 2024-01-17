@@ -6,7 +6,7 @@ Endless Runner Game in Unity
 This project is an endless runner game inspired by Subway Surfer. The player navigates through a continuous path, dodging obstacles and collecting coins to increase their score.
 
 ### Key Features:
-- Endless running gameplay
+- Endless running, jumping and crouching gameplay
 - Dynamic obstacles that challenge the player
 - Collectable coins to boost score
 - Random Event APPEAR !! : ****** OBSTACLE!!!
@@ -15,10 +15,10 @@ This project is an endless runner game inspired by Subway Surfer. The player nav
 - The camera is fixed, providing a consistent view of the gameplay area.
 
 ## ⌨ Controls
-- The player has a single control: Jump.
+- The player has a two controls: Jump/Crouch
 
 ## 👾 Character
-- The character can only jump.
+- The character can only jump/crouch.
 - Colliding with an obstacle or falling results in game over.
 
 ## 📝 Functionality
