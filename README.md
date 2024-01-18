@@ -45,6 +45,9 @@ Follow these instructions to set up the game in your local environment.
 3. Load the GameOver scene and SampleScene
 4. Hit the 'Play' button to test the game OR File -> Build and Run
 
+### Authors
+Ranvin Thimothee & Clement Penot
+
 ## Acknowledgments
 - Inspiration from Subway Surfer
 - Unity Community for various resources and tutorials
